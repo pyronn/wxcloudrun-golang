@@ -3,12 +3,13 @@ package service
 import (
 	"encoding/json"
 	"fmt"
+	"io"
 	"io/ioutil"
 	"net/http"
 	"time"
 
-	"wxcloudrun-golang/db/dao"
-	"wxcloudrun-golang/db/model"
+	"wxcloud-test/db/dao"
+	"wxcloud-test/db/model"
 
 	"gorm.io/gorm"
 )
@@ -62,6 +63,16 @@ func CounterHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	w.Header().Set("content-type", "application/json")
 	w.Write(msg)
+}
+
+func MsgHandler(w http.ResponseWriter, r *http.Request) {
+	data, err := io.ReadAll(r.Body)
+	if err != nil {
+		fmt.Fprint(w, "内部错误")
+		return
+	}
+	println(fmt.Sprintf("msg:%s", data))
+	w.Write([]byte("success"))
 }
 
 // modifyCounter 更新计数，自增或者清零
