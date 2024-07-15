@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-	"wxcloud-test/db"
-	"wxcloud-test/service"
+	"wxcloudrun-golang/db"
+	"wxcloudrun-golang/service"
 )
 
 func main() {
@@ -15,7 +15,6 @@ func main() {
 
 	http.HandleFunc("/", service.IndexHandler)
 	http.HandleFunc("/api/count", service.CounterHandler)
-	http.HandleFunc("/api/recMsg", service.MsgHandler)
 
 	log.Fatal(http.ListenAndServe(":80", nil))
 }

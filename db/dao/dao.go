@@ -1,8 +1,8 @@
 package dao
 
 import (
-	"wxcloud-test/db"
-	"wxcloud-test/db/model"
+	"wxcloudrun-golang/db"
+	"wxcloudrun-golang/db/model"
 )
 
 const tableName = "Counters"

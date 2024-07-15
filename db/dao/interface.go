@@ -1,7 +1,7 @@
 package dao
 
 import (
-	"wxcloud-test/db/model"
+	"wxcloudrun-golang/db/model"
 )
 
 // CounterInterface 计数器数据模型接口
